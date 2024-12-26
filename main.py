@@ -31,7 +31,15 @@ def draw():
 
 def on_mouse_down(pos):
     global score
-    if createSatelite() 
+    if nextSatellite < numberOfSatelites:
+        if satelites[nextSatellite].collidepoint(pos):
+            if nextSatellite:
+                lines.append((satelites[nextSatellite-1].pos, satelites[nextSatellite].pos))
+            nextSatellite = nextSatellite + 1
+        else:
+            lines = []
+            nextSatellite = 0
+
 
 
 createSatelite()
