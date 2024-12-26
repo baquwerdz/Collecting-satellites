@@ -23,22 +23,22 @@ def draw():
     screen.blit("bgspace",(0,0))
     number = 1
     for  i in satelites:
-        screen.draw.text(str(number),i.pos[0],i.pos[1]+20)
+        screen.draw.text(str(number),(i.pos[0],i.pos[1]+20))
         i.draw()
         number = number + 1
     for i in lines:
         screen.draw.line(i[0],i[1],(255,255,255))
 
 def on_mouse_down(pos):
-    global score
-    if nextSatellite < numberOfSatelites:
-        if satelites[nextSatellite].collidepoint(pos):
-            if nextSatellite:
-                lines.append((satelites[nextSatellite-1].pos, satelites[nextSatellite].pos))
-            nextSatellite = nextSatellite + 1
+    global nextSatelite, lines
+    if nextSatelite < numberOfSatelites:
+        if satelites[nextSatelite].collidepoint(pos):
+            if nextSatelite:
+                lines.append((satelites[nextSatelite-1].pos, satelites[nextSatelite].pos))
+            nextSatelite = nextSatelite + 1
         else:
             lines = []
-            nextSatellite = 0
+            nextSatelite = 0
 
 
 
